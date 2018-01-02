@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Miyoshi Japanese Restaurant</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Pavanam|Playball" rel="stylesheet">
+
+		<style>
+			body {
+				width: 100%;
+				height: 100%;
+				padding: 0;
+				margin: 0;
+				background: #fafafa;
+				overflow: hidden;
+				font-family: 'Pavanam', sans-serif;
+			}
+
+			a,
+			a:link,
+			a:visited,
+			a:active {
+				text-decoration: none;
+				color: inherit;
+			}
+
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 10px;
+			}
+
+			h1,
+			p {
+				padding: 0;
+				margin: 0;
+			}
+
+			.container {
+				width: 100%; 
+				height: 100vh;
+				position: relative;
+				display: flex;
+				justify-content: center;
+
+				-webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+				-moz-animation: fadein 3s; /* Firefox < 16 */
+					-ms-animation: fadein 3s; /* Internet Explorer */
+					-o-animation: fadein 3s; /* Opera < 12.1 */
+						animation: fadein 3s;	
+			}
+
+			.inner-container {
+				align-self: center;
+			}
+
+			.logo {
+				text-align: center;
+			}
+
+			.btn-container {
+				width: 100%;
+				display: inline-flex;
+				margin-top: 20px;
+			}
+
+			.menu-btn {
+				width: 25%;
+				margin: 0 5% 0 5%;
+				text-align: center;
+				display: block;
+				font-weight: 600;
+				border-bottom: 0px solid black;
+			}
+
+			.contact-btn:hover,
+			.menu-btn:hover {
+				cursor: pointer;
+				border-bottom: 1px solid black;
+			}
+
+
+			.title {
+				font-family: 'Playball', cursive;
+				font-size: 4em;
+				font-weight: 100;
+			}
+
+			.contact-num {
+				font-size: 12px;
+				padding: 0;
+				margin: 0;
+			}
+
+			@keyframes fadein {
+				from { opacity: 0; }
+				to   { opacity: 1; }
+			}
+
+			.contact-info {
+				margin-top: 10px;
+			}
+
+			.hours-info {
+				border: 0.2em solid black;
+				border-radius: 0.6em;
+				margin-top: 5px;
+			}
+			.hours-info ul li {
+				font-size: 11px;
+				width: 100%;
+				display: flex;
+				margin-top: 5px;
+			}
+
+			.hours-info ul li span {
+				padding-left: 10px;
+			}
+
+			.lunch-hrs,
+			.dinner-hrs {
+				width: 40%;
+			}
+
+			.day {
+				width: 20%;
+			}
+
+			.fa:before {
+				font-size: 13px;
+				padding-right: 3px;
+			}
+
+
+			.menu-container {
+				top: 0;
+				position: absolute;
+				overflow-y: scroll;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				transition: 0.3s ease-in;
+				color: #fafafa;
+				margin-bottom: 25px;
+			}
+			.dinner {
+				background: #01579B;
+			}
+			.lunch {
+				background: #1565C0;
+			}
+			.sushi {
+				background: #4527A0;
+			}
+
+			.menu-container ul li {
+				width: 100%;
+			}
+
+			.menu-container h1 {
+				text-align: center;
+			}
+			.menu-title {
+				margin: 0 auto;
+				width: 50%;	
+				margin-top: 26px;
+				margin-bottom: 26px;
+				border-bottom: 2px solid #fafafa;
+			}
+
+			/****************************************
+			*			MENU ITEM TABLE
+			****************************************/
+			.menu-table-container {
+				margin-bottom: 75px;
+				display: flex;
+				justify-content: center;
+				width: 100%;
+			}
+
+			.menu-table {
+				align-self: center;
+				border-collapse:separate; 
+				border-spacing: 0.6em;	
+			}
+
+			.menu-table .menu-item-title {
+				font-size: 30px;
+				text-align: center;
+				padding: 14px 0 14px 0;
+			}
+
+			.menu-item {
+				/*float: left;*/
+				/*width: 80%;*/
+			}
+			.inner-items {
+				padding-left: 30px;
+			}
+			.menu-item-price {
+				float: right;
+				/*width: 20%;*/
+			}
+
+			.exit-container {
+				position: fixed;
+				width: 100%;
+				display: inline-block;
+			}
+
+			.close-menu-btn {
+				margin: 12px;
+				float: right;
+				font-size: 25px;
+			}
+			.close-menu-btn:hover {
+				cursor: pointer;
+			}
+
+			.slide-in {
+				left: 0;
+			}
+
+
+			@media (min-width: 0px) {
+				.menu-table {
+					width: 80%;
+				}
+			}
+
+			@media (min-width: 900px) {
+				.menu-table { 
+					width: 60%;
+				}
+			}		
+		</style>
+	</head>
+	<body>
+
+		<div class="container">
+			<div class="inner-container">
+				<div id="logo" class="container-item logo">
+					<h1 class="title">Miyoshi</h1>
+				</div>
+
+				<div class="contact-info">
+					<p><i class="fa fa-phone" aria-hidden="true"></i>201-489-0007</p>
+					<p>
+						<a href="https://www.google.com/maps/place/21+Mercer+St,+Hackensack,+NJ+07601/data=!4m2!3m1!1s0x89c2fa1d102c3e21:0x4d64b8b6bfd89e9b?sa=X&ved=0ahUKEwiCru_vy5nPAhXs5oMKHR9xD1gQ8gEIHTAA">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>21 Mercer St. Hackensack, NJ 07601</p>
+						</a>
+					<p><i class="fa fa-clock-o" aria-hidden="true"></i> Hours</p>
+
+					<div class="hours-info">
+						<ul>
+							<li>
+								<div class="day">Mon</div>
+								<div class="lunch-hrs">Closed</div>
+								<div class="dinner-hrs">Closed</div>
+
+							</li>
+							<li>
+								<div class="day">Tue-Sun</div>
+								<div class="lunch-hrs">11:30AM - 2:30PM</div>
+								<div class="dinner-hrs">5:30PM - 10:30PM</div>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+
+				<div class="btn-container">
+					<div id="lunchBtn" class="menu-btn">Lunch</div>
+					<div id="dinnerBtn" class="menu-btn">Dinner</div>
+					<div id="sushiBtn" class="menu-btn">Sushi</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="lunchMenuContainer" class="menu-container lunch">
+			<div class="exit-container">
+				<div class="close-menu-btn" onclick="closeMenuContainer()">X</div>
+			</div>
+			<div class="menu-title">
+				<h1>Lunch</h1>
+			</div>
+			<div class="menu-table-container">
+				<table id="lunchMenuTable" class="menu-table">
+				</table>
+			</div>
+		</div>
+
+
+
+		<div id="dinnerMenuContainer" class="menu-container dinner">
+			<div class="exit-container">
+				<div class="close-menu-btn" onclick="closeMenuContainer()">X</div>
+			</div>
+			<div class="menu-title">
+				<h1>Dinner</h1>
+			</div>
+			<div class="menu-table-container">
+				<table id="dinnerMenuTable" class="menu-table">
+				</table>
+			</div>
+		</div>
+
+		<div id="sushiMenuContainer" class="menu-container sushi">
+			<div class="exit-container">
+				<div class="close-menu-btn" onclick="closeMenuContainer()">X</div>
+			</div>
+			<div class="menu-title">
+				<h1>Sushi</h1>
+			</div>
+			<div class="menu-table-container">
+				<table id="sushiMenuTable" class="menu-table">
+				</table>
+			</div>
+		</div>
+
+
+		<script src="./main.js"></script>
+	</body>
+</html>
+
